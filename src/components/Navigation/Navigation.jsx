@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Box from '@material-ui/core/Box';
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -25,37 +26,79 @@ export const Navigation = () => {
           component='li'
           className={classes.item}
         >
-          Форматирование
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/HTML'
+            activeClassName='selected'
+          >
+            Форматирование
+          </Box>
         </Box>
         <Box
           component='li'
           className={classes.item}
         >
-          CSS
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/CSS'
+            activeClassName='selected'
+          >
+            CSS
+          </Box>
         </Box>
         <Box
           component='li'
           className={classes.item}
         >
-          JS
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/JS'
+            activeClassName='selected'
+          >
+            JS
+          </Box>
         </Box>
         <Box
           component='li'
           className={classes.item}
         >
-          Кроссворд
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/Crossword'
+            activeClassName='selected'
+          >
+            Кроссворд
+          </Box>
         </Box>
         <Box
           component='li'
           className={classes.item}
         >
-          Форма
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/Form'
+            activeClassName='selected'
+          >
+            Форма
+          </Box>
         </Box>
         <Box
           component='li'
           className={classes.item}
         >
-          Даты
+          <Box
+            component={NavLink}
+            className={classes.itemLink}
+            to='/Date'
+            activeClassName='selected'
+          >
+            Даты
+          </Box>
         </Box>
       </Box>
     </Box>

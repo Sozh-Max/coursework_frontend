@@ -12,15 +12,20 @@ export const getStyles = theme => ({
   item: {
     marginLeft: '2%',
     marginRight: '2%',
-    cursor: 'pointer',
     fontWeight: 700,
     transition: '150ms',
     fontSize: 20,
-    '&:hover': {
-      color: theme.mainStyles.colorLink,
-    },
-    '&.active': {
-      color: theme.mainStyles.colorLink,
-    },
+    '& a.MuiBox-root': {
+      color: 'white',
+      '&:hover': {
+        color: theme.mainStyles.colorLink,
+      },
+      '&.selected': {
+        color: theme.mainStyles.colorLink,
+      },
+    }
   },
+  itemLink: {
+    textDecoration: 'none',
+  }
 });

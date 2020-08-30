@@ -5,5 +5,7 @@ export const getStyles = theme => ({
     flexBasis: 'auto',
     paddingTop: 15,
     paddingBottom: 15,
+    display: 'flex',
+    flexDirection: 'column',
   },
 });

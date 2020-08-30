@@ -8,8 +8,5 @@ export const getStyles = theme => ({
     flexDirection: 'column',
     backgroundColor: theme.mainStyles.backgroundColor,
     color: theme.mainStyles.colorText,
-    '& a': {
-      color: theme.mainStyles.colorLink,
-    },
   },
 });

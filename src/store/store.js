@@ -11,7 +11,7 @@ import {
 } from './reducers';
 
 const middleware = [thunk];
-const composeEnhancers = compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;;
 
 const rootReducer = combineReducers({
   showStructureElems,
