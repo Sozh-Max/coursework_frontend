@@ -17,6 +17,8 @@ import {
   HTML3,
   HTML4,
   HTML5,
+  HTML6,
+  HTML7,
   htmlDescription,
 } from '../../content/HTML';
 
@@ -69,7 +71,21 @@ export const Main = () => {
               <DefaultContent
                 description={htmlDescription['html-5']}
               >
-                <HTML5/>
+                <HTML5 />
+              </DefaultContent>
+            </Route>
+            <Route exact path='/HTML/html-6'>
+              <DefaultContent
+                description={htmlDescription['html-6']}
+              >
+                <HTML6 />
+              </DefaultContent>
+            </Route>
+            <Route exact path='/HTML/html-7'>
+              <DefaultContent
+                description={htmlDescription['html-7']}
+              >
+                <HTML7 />
               </DefaultContent>
             </Route>
           </Switch>

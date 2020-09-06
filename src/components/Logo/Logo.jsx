@@ -16,10 +16,10 @@ const customHistory = createBrowserHistory();
 const MAP = {
   name: "my-map",
   areas: [
-    { name: "1", shape: "poly", url: 'CSS', coords: [0,0, 110,0, 0,67], fillColor: "rgba(0, 0, 0, 0.2)"},
-    { name: "2", shape: "poly", url: 'Date', coords: [112,0, 220,0, 220,134], fillColor: "rgba(0, 0, 0, 0.2)"},
-    { name: "3", shape: "poly", url: 'JS', coords: [0,67, 110,0, 220,134], fillColor: "rgba(0, 0, 0, 0.2)"},
-    { name: "4", shape: "poly", url: 'Crossword', coords: [0,68, 220,134, 0,134], fillColor: "rgba(0, 0, 0, 0.2)"},
+    { name: "1", shape: "poly", url: '/CSS', coords: [0,0, 110,0, 0,67], fillColor: "rgba(0, 0, 0, 0.2)"},
+    { name: "2", shape: "poly", url: '/Date', coords: [112,0, 220,0, 220,134], fillColor: "rgba(0, 0, 0, 0.2)"},
+    { name: "3", shape: "poly", url: '/JS', coords: [0,67, 110,0, 220,134], fillColor: "rgba(0, 0, 0, 0.2)"},
+    { name: "4", shape: "poly", url: '/Crossword', coords: [0,68, 220,134, 0,134], fillColor: "rgba(0, 0, 0, 0.2)"},
   ]
 }
 
@@ -38,7 +38,7 @@ export const Logo = ({
         src={dataImg}
         map={MAP}
         width={220}
-        onClick={area => customHistory.push(area.url)}
+        onClick={area => customHistory.replace(area.url)}
       />
     </Box>
   )
