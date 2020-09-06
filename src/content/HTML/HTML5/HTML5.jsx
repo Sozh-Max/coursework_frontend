@@ -7,7 +7,7 @@ export const HTML5 = () => (
   <Box>
     {parse(`
       <plaintext>
-        <table aria-label=\"simple table\">
+        <table aria-label="simple table">
           <thead>
             <tr>
               <th> Заголовок 1 </th>

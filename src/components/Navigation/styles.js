@@ -1,5 +1,6 @@
 export const getStyles = theme => ({
   wrapper: {
+    display: 'none',
     marginBottom: 15,
     border: `1px solid ${theme.mainStyles.colorText}`,
     padding: 5,
@@ -27,5 +28,10 @@ export const getStyles = theme => ({
   },
   itemLink: {
     textDecoration: 'none',
-  }
+  },
+  [theme.breakpoints.up('sm')]: {
+    wrapper: {
+      display: 'block',
+    }
+  },
 });

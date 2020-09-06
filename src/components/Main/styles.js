@@ -8,4 +8,7 @@ export const getStyles = theme => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  mainWrapper: {
+    flexGrow: 1,
+  }
 });

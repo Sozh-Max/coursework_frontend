@@ -7,7 +7,7 @@ export const htmlDescription = {
   'html-6': 'Задать переходы внутри страницы',
   'html-7': 'Создать простой открывающийся и закрывающийся виджет, то есть фрагмент краткого изложения, по щелчку на котором открывается панель с дополнительной информацией используя теги <details> и <summary>',
 }
-export const menuList = [
+export const htmlMenuList = [
   {
     id: 1,
     title: 'Предварительно отформатированный текст',
@@ -42,5 +42,43 @@ export const menuList = [
     id: 7,
     title: 'Виджет',
     url: '/HTML/html-7',
+  },
+];
+
+export const htmlRouters = [
+  {
+    path: '/HTML/html-1',
+    element: 'HTML1',
+    description: 'html-1',
+  },
+  {
+    path: '/HTML/html-2',
+    element: 'HTML2',
+    description: 'html-2',
+  },
+  {
+    path: '/HTML/html-3',
+    element: 'HTML3',
+    description: 'html-3',
+  },
+  {
+    path: '/HTML/html-4',
+    element: 'HTML4',
+    description: 'html-4',
+  },
+  {
+    path: '/HTML/html-5',
+    element: 'HTML5',
+    description: 'html-5',
+  },
+  {
+    path: '/HTML/html-6',
+    element: 'HTML6',
+    description: 'html-6',
+  },
+  {
+    path: '/HTML/html-7',
+    element: 'HTML7',
+    description: 'html-7',
   },
 ]

@@ -10,7 +10,8 @@ import { Navigation } from '../Navigation';
 import { getStyles } from './styles';
 import { DefaultContent } from '../DefaultContent';
 import { SectionMenu } from '../SectionMenu';
-import { menuList } from '../../content/HTML';
+import { htmlMenuList, htmlRouters } from '../../content/HTML';
+import { cssMenuList, cssRouters } from '../../content/CSS';
 import {
   HTML1,
   HTML2,
@@ -21,6 +22,38 @@ import {
   HTML7,
   htmlDescription,
 } from '../../content/HTML';
+import {
+  CSS1,
+  CSS2,
+  CSS3,
+  CSS4,
+  CSS5,
+  CSS6,
+  CSS7,
+  CSS8,
+  cssDescription,
+} from '../../content/CSS';
+
+const htmlElements = {
+  HTML1,
+  HTML2,
+  HTML3,
+  HTML4,
+  HTML5,
+  HTML6,
+  HTML7,
+};
+
+const cssElements = {
+  CSS1,
+  CSS2,
+  CSS3,
+  CSS4,
+  CSS5,
+  CSS6,
+  CSS7,
+  CSS8,
+}
 
 const useStyles = makeStyles(getStyles);
 
@@ -37,59 +70,53 @@ export const Main = () => {
       <Switch>
 
         <Route path='/HTML'>
-          <SectionMenu list={menuList} />
-          <Switch>
-            <Route exact path='/HTML/html-1'>
-              <DefaultContent
-                description={htmlDescription['html-1']}
-              >
-                <HTML1 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-2'>
-              <DefaultContent
-                description={htmlDescription['html-2']}
-              >
-                <HTML2 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-3'>
-              <DefaultContent
-                description={htmlDescription['html-3']}
-              >
-                <HTML3 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-4'>
-              <DefaultContent
-                description={htmlDescription['html-4']}
-              >
-                <HTML4 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-5'>
-              <DefaultContent
-                description={htmlDescription['html-5']}
-              >
-                <HTML5 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-6'>
-              <DefaultContent
-                description={htmlDescription['html-6']}
-              >
-                <HTML6 />
-              </DefaultContent>
-            </Route>
-            <Route exact path='/HTML/html-7'>
-              <DefaultContent
-                description={htmlDescription['html-7']}
-              >
-                <HTML7 />
-              </DefaultContent>
-            </Route>
-          </Switch>
-          <SectionMenu list={menuList} />
+          <SectionMenu list={htmlMenuList} />
+            <Box className={classes.mainWrapper}>
+              <Switch>
+                {htmlRouters.map(({
+                  path,
+                  element,
+                  description,
+                }) => {
+                  const Element = htmlElements[element];
+                  return (
+                    <Route exact path={path}>
+                      <DefaultContent
+                        description={htmlDescription[description]}
+                      >
+                        <Element />
+                      </DefaultContent>
+                    </Route>
+                  )
+                })}
+              </Switch>
+            </Box>
+          <SectionMenu list={htmlMenuList} />
+        </Route>
+
+        <Route path='/CSS'>
+          <SectionMenu list={cssMenuList} />
+          <Box className={classes.mainWrapper}>
+            <Switch>
+              {cssRouters.map(({
+                path,
+                element,
+                description,
+              }) => {
+                const Element = cssElements[element];
+                return (
+                  <Route exact path={path}>
+                    <DefaultContent
+                      description={cssDescription[description]}
+                    >
+                      <Element />
+                    </DefaultContent>
+                  </Route>
+                )
+              })}
+            </Switch>
+          </Box>
+          <SectionMenu list={cssMenuList} />
         </Route>
 
       </Switch>

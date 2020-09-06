@@ -1,6 +1,6 @@
 export const getStyles = theme => ({
   wrapper: {
-    display: 'flex',
+    display: 'none',
     flexWrap: 'wrap',
     border: '1px solid white',
     marginTop: 5,
@@ -21,5 +21,10 @@ export const getStyles = theme => ({
       color: theme.mainStyles.colorLink,
       borderColor: theme.mainStyles.colorLink,
     }
-  }
+  },
+  [theme.breakpoints.up('sm')]: {
+    wrapper: {
+      display: 'flex',
+    }
+  },
 });
