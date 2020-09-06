@@ -3,7 +3,7 @@ export const getStyles = theme => ({
     display: 'flex',
     justifyContent: 'space-between',
     flexGrow: 1,
-    minHeight: '50vh',
+    minHeight: '30vh',
     marginTop: 10,
     marginBottom: 10,
   },
