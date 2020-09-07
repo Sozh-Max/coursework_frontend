@@ -32,6 +32,8 @@ import {
   CSS7,
   CSS8,
   CSS9,
+  CSS10,
+  CSS11,
   cssDescription,
 } from '../../content/CSS';
 
@@ -55,6 +57,8 @@ const cssElements = {
   CSS7,
   CSS8,
   CSS9,
+  CSS10,
+  CSS11,
 }
 
 const useStyles = makeStyles(getStyles);
