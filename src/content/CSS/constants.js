@@ -77,7 +77,7 @@ export const cssMenuList = [
   {
     id: 13,
     title: 'Flexbox, переключение разрешения изображений',
-    url: '/CSS/css-14',
+    url: '/CSS/css-13',
   },
 ];
 

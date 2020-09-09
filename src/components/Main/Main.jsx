@@ -10,8 +10,6 @@ import { Navigation } from '../Navigation';
 import { getStyles } from './styles';
 import { DefaultContent } from '../DefaultContent';
 import { SectionMenu } from '../SectionMenu';
-import { htmlMenuList, htmlRouters } from '../../content/HTML';
-import { cssMenuList, cssRouters } from '../../content/CSS';
 import {
   HTML1,
   HTML2,
@@ -21,6 +19,8 @@ import {
   HTML6,
   HTML7,
   htmlDescription,
+  htmlMenuList,
+  htmlRouters,
 } from '../../content/HTML';
 import {
   CSS1,
@@ -34,8 +34,19 @@ import {
   CSS9,
   CSS10,
   CSS11,
+  CSS12,
+  CSS13,
   cssDescription,
+  cssMenuList,
+  cssRouters,
 } from '../../content/CSS';
+import {
+  JS1,
+  JS2,
+  jsDescription,
+  jsMenuList,
+  jsRouters,
+} from '../../content/JS';
 
 const htmlElements = {
   HTML1,
@@ -59,7 +70,14 @@ const cssElements = {
   CSS9,
   CSS10,
   CSS11,
+  CSS12,
+  CSS13,
 }
+
+const jsElements = {
+  JS1,
+  JS2,
+};
 
 const useStyles = makeStyles(getStyles);
 
@@ -86,7 +104,7 @@ export const Main = () => {
                 }) => {
                   const Element = htmlElements[element];
                   return (
-                    <Route exact path={path}>
+                    <Route key={description} exact path={path}>
                       <DefaultContent
                         description={htmlDescription[description]}
                       >
@@ -111,7 +129,7 @@ export const Main = () => {
               }) => {
                 const Element = cssElements[element];
                 return (
-                  <Route exact path={path}>
+                  <Route key={description} exact path={path}>
                     <DefaultContent
                       description={cssDescription[description]}
                     >
@@ -123,6 +141,31 @@ export const Main = () => {
             </Switch>
           </Box>
           <SectionMenu list={cssMenuList} />
+        </Route>
+
+        <Route path='/JS'>
+          <SectionMenu list={jsMenuList} />
+          <Box className={classes.mainWrapper}>
+            <Switch>
+              {jsRouters.map(({
+                path,
+                element,
+                description,
+              }) => {
+                const Element = jsElements[element];
+                return (
+                  <Route key={description} exact path={path}>
+                    <DefaultContent
+                      description={jsDescription[description]}
+                    >
+                      <Element />
+                    </DefaultContent>
+                  </Route>
+                )
+              })}
+            </Switch>
+          </Box>
+          <SectionMenu list={jsMenuList} />
         </Route>
 
       </Switch>
