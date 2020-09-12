@@ -10,6 +10,7 @@ import { Navigation } from '../Navigation';
 import { getStyles } from './styles';
 import { DefaultContent } from '../DefaultContent';
 import { SectionMenu } from '../SectionMenu';
+import { Crossword } from '../../content/Crossword';
 import {
   HTML1,
   HTML2,
@@ -166,6 +167,12 @@ export const Main = () => {
             </Switch>
           </Box>
           <SectionMenu list={jsMenuList} />
+        </Route>
+
+        <Route path='/Crossword'>
+          <Box className={classes.mainWrapper}>
+            <Crossword />
+          </Box>
         </Route>
 
       </Switch>
