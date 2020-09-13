@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import Box from '@material-ui/core/Box';
 import useTheme from '@material-ui/core/styles/useTheme';

@@ -38,7 +38,7 @@ export const Logo = ({
         src={dataImg}
         map={MAP}
         width={220}
-        onClick={area => customHistory.replace(area.url)}
+        onClick={area => customHistory.push(area.url)}
       />
     </Box>
   )

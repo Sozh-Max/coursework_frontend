@@ -10,7 +10,7 @@ import { Navigation } from '../Navigation';
 import { getStyles } from './styles';
 import { DefaultContent } from '../DefaultContent';
 import { SectionMenu } from '../SectionMenu';
-import { Crossword } from '../../content/Crossword';
+import { Crossword, crosswordDescription } from '../../content/Crossword';
 import {
   HTML1,
   HTML2,
@@ -171,7 +171,11 @@ export const Main = () => {
 
         <Route path='/Crossword'>
           <Box className={classes.mainWrapper}>
-            <Crossword />
+            <DefaultContent
+              description={crosswordDescription}
+            >
+              <Crossword />
+            </DefaultContent>
           </Box>
         </Route>
 

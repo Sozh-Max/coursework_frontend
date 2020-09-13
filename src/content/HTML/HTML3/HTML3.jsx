@@ -4,12 +4,24 @@ import Box from '@material-ui/core/Box';
 
 export const HTML3 = () => (
   <Box>
-    <Box component='ul'>
+    <Box
+      component='ol'
+      style={{
+        listStyle: 'decimal inside',
+        marginBottom: 8,
+      }}
+    >
       <Box component='li'>Номер 1</Box>
       <Box component='li'>Номер 2</Box>
       <Box component='li'>Номер 3</Box>
     </Box>
-    <Box component='ol'>
+    <Box
+      component='ul'
+      style={{
+        listStyle: 'square inside',
+        marginBottom: 8,
+      }}
+    >
       <Box component='li'>Не нумерованный первый лист</Box>
       <Box component='li'>Не нумерованный второй лист</Box>
       <Box component='li'>Не нумерованный третий лист</Box>

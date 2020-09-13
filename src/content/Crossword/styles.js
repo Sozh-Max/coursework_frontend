@@ -2,7 +2,7 @@ export const getStyles = theme => ({
   wrapper: {
     height: '100%',
     overflow: 'auto',
-    maxWidth: 1400,
+    maxWidth: 1200,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
