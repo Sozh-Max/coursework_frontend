@@ -11,6 +11,8 @@ import { getStyles } from './styles';
 import { DefaultContent } from '../DefaultContent';
 import { SectionMenu } from '../SectionMenu';
 import { Crossword, crosswordDescription } from '../../content/Crossword';
+import { FormPage, formPageDescription } from '../../content/FormPage';
+import { DatePage, datePageDescription } from '../../content/DatePage';
 import {
   HTML1,
   HTML2,
@@ -175,6 +177,26 @@ export const Main = () => {
               description={crosswordDescription}
             >
               <Crossword />
+            </DefaultContent>
+          </Box>
+        </Route>
+
+        <Route path='/Form'>
+          <Box className={classes.mainWrapper}>
+            <DefaultContent
+              description={formPageDescription}
+            >
+              <FormPage />
+            </DefaultContent>
+          </Box>
+        </Route>
+
+        <Route path='/Date'>
+          <Box className={classes.mainWrapper}>
+            <DefaultContent
+              description={datePageDescription}
+            >
+              <DatePage />
             </DefaultContent>
           </Box>
         </Route>
