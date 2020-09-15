@@ -8,6 +8,7 @@ export const getStyles = theme => ({
     fontWeight: 700,
     position: 'absolute',
     opacity: 0,
+    color: 'red',
   },
   title: {
     marginBottom: 10,
