@@ -10,7 +10,7 @@ import { getStyles } from './styles';
 
 const useStyles = makeStyles(getStyles);
 
-export const Header = () => {
+export const Header = ({ history }) => {
   const theme = useTheme();
   const classes = useStyles(theme);
 
@@ -19,7 +19,7 @@ export const Header = () => {
       component='header'
       className={classes.wrapper}
     >
-      <Logo />
+      <Logo history={history} />
       <Box className={classes.title}>
         Казаченко Максим Михайлович
       </Box>

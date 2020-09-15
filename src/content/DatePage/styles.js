@@ -30,14 +30,14 @@ export const getStyles = theme => ({
   panelButtons: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: 15,
+    padding: 5,
     marginBottom: 15,
     border: '1px solid #eee',
   },
   tabTh: {
     padding: '5px 10px',
     border: '1px solid #eee',
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: 500,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     color: 'white',
@@ -45,7 +45,7 @@ export const getStyles = theme => ({
   tabTd: {
     padding: '5px 10px',
     border: '1px solid #eee',
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: 500,
     color: 'white',
   },
@@ -61,5 +61,13 @@ export const getStyles = theme => ({
         color: 'white',
       },
     },
-  }
+    '& .Mui-error': {
+      '&:after': {
+        borderColor: '#f44336!important',
+      },
+      '&:before': {
+        borderColor: '#f44336!important',
+      },
+    },
+  },
 });

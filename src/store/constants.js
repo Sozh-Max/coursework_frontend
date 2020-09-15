@@ -22,3 +22,4 @@ export const RESET_FORM = 'RESET_FORM';
 
 export const SET_WORKER_NAME = 'SET_WORKER_NAME';
 export const SET_WORKER_DATE = 'SET_WORKER_DATE';
+export const ADD_WORKER = 'ADD_WORKER';

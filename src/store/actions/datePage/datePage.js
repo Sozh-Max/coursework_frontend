@@ -1,6 +1,7 @@
 import {
   SET_WORKER_NAME,
   SET_WORKER_DATE,
+  ADD_WORKER,
 } from '../../constants';
 
 export const setWorkerName = workerName => ({
@@ -15,4 +16,8 @@ export const setWorkerDate = workerDate => ({
   payload: {
     workerDate,
   }
+});
+
+export const addWorker = () => ({
+  type: ADD_WORKER,
 });

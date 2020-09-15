@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-
 import Box from '@material-ui/core/Box';
 import Table from '@material-ui/core/Table';
 import TableRow from '@material-ui/core/TableRow';
@@ -12,39 +11,50 @@ import Button from '@material-ui/core/Button';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import useTheme from '@material-ui/core/styles/useTheme';
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Radio from '@material-ui/core/Radio';
-import Slider from '@material-ui/core/Slider';
-import Checkbox from '@material-ui/core/Checkbox';
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardDatePicker,
-// } from '@material-ui/pickers';
-// import DateFnsUtils from '@date-io/date-fns';
 
 import {
   setWorkerName as setWorkerNameAction,
   setWorkerDate as setWorkerDateAction,
+  addWorker as addWorkerAction,
 } from '../../store/actions';
+import { getWorkerCategory } from './utils';
 
 import { getStyles } from './styles';
 
 const useStyles = makeStyles(getStyles);
 
 const DatePageContainer = ({
+  workerList,
   workerName,
   workerDate,
   setWorkerName,
   setWorkerDate,
+  addWorker,
 }) => {
   const theme = useTheme();
   const classes = useStyles(theme);
 
   const [ workerNameError, setWorkerNameError ] = useState(false);
+  const [ workerDateError, setWorkerDateError ] = useState(false);
+
+  const validate = () => {
+    let result = true;
+    if (!workerName.trim()) {
+      result = false;
+      setWorkerNameError(true);
+    }
+    if (!workerDate.trim()) {
+      result = false;
+      setWorkerDateError(true);
+    }
+    return result;
+  }
+
+  const handleAddWorker = () => {
+    if (validate()) {
+      addWorker();
+    }
+  }
 
   return (
     <Box>
@@ -75,27 +85,17 @@ const DatePageContainer = ({
                 Дата начала контракта
               </TableCell>
               <TableCell className={classes.td}>
-                {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>*/}
-                {/*  <KeyboardDatePicker*/}
-                {/*    disableToolbar*/}
-                {/*    variant="inline"*/}
-                {/*    format="MM/dd/yyyy"*/}
-                {/*    margin="normal"*/}
-                {/*    id="date-picker-inline"*/}
-                {/*    label="Date picker inline"*/}
-                {/*    value={workerDate}*/}
-                {/*    onChange={setWorkerDate}*/}
-                {/*    KeyboardButtonProps={{*/}
-                {/*      'aria-label': 'change date',*/}
-                {/*    }}*/}
-                {/*  />*/}
-                {/*</MuiPickersUtilsProvider>*/}
                 <form noValidate>
                   <TextField
                     id="date"
                     type="date"
                     className={classes.date}
-                    onChange={e => console.log(e.target.value)}
+                    error={workerDateError}
+                    value={workerDate}
+                    onChange={e => {
+                      setWorkerDate(e.target.value);
+                      setWorkerDateError(false);
+                    }}
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -106,11 +106,43 @@ const DatePageContainer = ({
           </TableBody>
         </Table>
       </Box>
+      <Box className={classes.panelButtons}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddWorker}
+        >
+          Добавить
+        </Button>
+      </Box>
+      <Box>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tabTh}>№</TableCell>
+              <TableCell className={classes.tabTh}>Фамилия</TableCell>
+              <TableCell className={classes.tabTh}>Дата начала контракта</TableCell>
+              <TableCell className={classes.tabTh}>Категория</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {workerList.map((item, i) => (
+              <TableRow key={item.id}>
+                <TableCell className={classes.tabTd}>{ i + 1 }</TableCell>
+                <TableCell className={classes.tabTd}>{ item.workerName }</TableCell>
+                <TableCell className={classes.tabTd}>{ item.workerDate }</TableCell>
+                <TableCell className={classes.tabTd}>{ getWorkerCategory(item.workerDate) }</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
     </Box>
   )
 }
 
 const mapStateToProps = state => ({
+  workerList: state.datePage.workerList,
   workerName: state.datePage.inputData.workerName,
   workerDate: state.datePage.inputData.workerDate,
 })
@@ -118,6 +150,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   setWorkerName: setWorkerNameAction,
   setWorkerDate: setWorkerDateAction,
+  addWorker: addWorkerAction,
 }
 
 export const DatePage = connect(

@@ -1,6 +1,5 @@
 import React from 'react';
 import ImageMapper from 'react-image-mapper';
-import { createBrowserHistory } from "history";
 
 import Box from '@material-ui/core/Box';
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -11,7 +10,6 @@ import { getStyles } from './styles';
 import dataImg from './logo.jpg';
 
 const useStyles = makeStyles(getStyles);
-const customHistory = createBrowserHistory();
 
 const MAP = {
   name: "my-map",
@@ -25,6 +23,7 @@ const MAP = {
 
 export const Logo = ({
   style,
+  history,
 }) => {
   const theme = useTheme();
   const classes = useStyles(theme);
@@ -38,7 +37,7 @@ export const Logo = ({
         src={dataImg}
         map={MAP}
         width={220}
-        onClick={area => customHistory.push(area.url)}
+        onClick={area => history.push(area.url)}
       />
     </Box>
   )

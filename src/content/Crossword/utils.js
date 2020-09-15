@@ -95,7 +95,6 @@ export const getTdClassName = (data, isShow) => {
   if (data.check) {
     return 'selected';
   }
-
 }
 
 export const checkResult = data => {
